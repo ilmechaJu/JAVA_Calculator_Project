@@ -9,7 +9,7 @@ public class App {
         Queue<Double> intQueue = new LinkedList<>();
 
         while(bool) {
-            if (intQueue.size() == 10){
+            if (intQueue.size() == 2){
                 intQueue.poll();
             }
             System.out.print("첫 번째 숫자를 입력하세요: ");
