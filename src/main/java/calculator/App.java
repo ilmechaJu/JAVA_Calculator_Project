@@ -6,12 +6,10 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean bool = true;
-        Queue<Double> intQueue = new LinkedList<>();
+        Queue<Double> Queue_D = new LinkedList<>();
 
         while(bool) {
-            if (intQueue.size() == 2){
-                intQueue.poll();
-            }
+
             System.out.print("첫 번째 숫자를 입력하세요: ");
             double n1 = sc.nextDouble();
             System.out.print("두 번째 숫자를 입력하세요: ");
@@ -36,14 +34,17 @@ public class App {
             } else if (opt == '%') {
                 result = n1 % n2;
             }
-            intQueue.add(result);
+            Queue_D.add(result);
             System.out.println("결과: " + result);
             System.out.println("더 계산하시겠습니까? (yes or no)");
             String s1 = sc.next();
             if (s1.equals("no")) {
                 bool = false;
-                System.out.print(intQueue);
             }
+            if (s1.equals("remove")){
+                Queue_D.poll();
+            }
+            System.out.println(Queue_D);
         }
     }
 }
