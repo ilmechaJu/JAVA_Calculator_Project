@@ -6,7 +6,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         Calculate calculate = new Calculate();
         boolean bool = true;
-        Queue<Double> Queue_D = new LinkedList<>();
+
 
         while(bool) {
 
@@ -26,22 +26,21 @@ public class App {
             } catch (BadInputException e) {
                 System.out.println(e.getMessage());
             }
-
-            Queue_D.add(result);
-            System.out.println("결과: " + result);
             System.out.println("더 계산하시겠습니까? (yes or no) / 가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제) / 저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             String s1 = sc.next();
             if (s1.equals("no")) {
                 bool = false;
             }
             if (s1.equals("remove")){
-                Queue_D.poll();
+                calculate.Queue_D.poll();
             }
             if (s1.equals("inquiry")){
-                for(double i : Queue_D){
+                for(double i : calculate.Queue_D){
                     System.out.println(i);
                 }
             }
+
+
         }
     }
 }

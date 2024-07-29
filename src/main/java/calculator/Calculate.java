@@ -1,10 +1,12 @@
 package calculator;
-
+import java.util.*;
 
 public class Calculate {
     private double firstNumber;
     private double secondNumber;
     private char operation;
+    Queue<Double> Queue_D = new LinkedList<>();
+    Scanner sc = new Scanner(System.in);
 
     //private AbstractOperation operation;
     public void setFirstNumber (double firstNumber){
@@ -40,6 +42,8 @@ public class Calculate {
             default:
                 throw new BadInputException("올바르지 않은 입력형태 입니다.");
         }
+        Queue_D.add(answer);
+        System.out.println("결과: " + answer);
 
         return answer;
 
