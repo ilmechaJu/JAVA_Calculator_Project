@@ -4,6 +4,7 @@ import java.util.*;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Calculate calculate = new Calculate();
         boolean bool = true;
         Queue<Double> Queue_D = new LinkedList<>();
 
@@ -11,14 +12,16 @@ public class App {
 
             System.out.print("첫 번째 숫자를 입력하세요: ");
             double fN = sc.nextDouble();
-            Calculate.firstNumber(fN);
+            calculate.setFirstNumber(fN);
             System.out.print("두 번째 숫자를 입력하세요: ");
             double SN = sc.nextDouble();
-            Calculate.secondNumber(SN);
+            calculate.setSecondNumber(SN);
             System.out.print("사칙연산 기호를 입력하세요: ");
             char opt = sc.next().charAt(0);
-            Calculate.operation(opt);
+            calculate.setOperation(opt);
+
             double result = 0;
+            result = calculate.calculator();
 
             Queue_D.add(result);
             System.out.println("결과: " + result);

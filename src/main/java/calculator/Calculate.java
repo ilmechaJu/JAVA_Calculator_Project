@@ -2,14 +2,14 @@ package calculator;
 
 
 public class Calculate {
-    private int firstNumber;
-    private int secondNumber;
-    private int operation;
+    private double firstNumber;
+    private double secondNumber;
+    private char operation;
     //private AbstractOperation operation;
-    public void setFirstNumber (int firstNumber){
+    public void setFirstNumber (double firstNumber){
         this.firstNumber = firstNumber;
     }
-    public void setSecondNumber (int secondNumber){
+    public void setSecondNumber (double secondNumber){
         this.secondNumber = secondNumber;
     }
     public void setOperation (char operation) {
@@ -18,7 +18,23 @@ public class Calculate {
 
     public double calculator(){
         double answer = 0;
-        answer = operation.operate(this.firstNumber, this.secondNumber);
+        switch(operation){
+            case '+':
+                answer = firstNumber + secondNumber;
+                break;
+            case '-':
+                answer = firstNumber - secondNumber;
+                break;
+            case '*':
+                answer = firstNumber * secondNumber;
+                break;
+            case '/':
+                answer = firstNumber / secondNumber; //예외처리 만들기 (  )
+                break;
+            default:
+                System.out.println("올바르지 않은 입력 형태입니다."); //Throw 사용해서 만들기 (  )
+        }
+
         return answer;
 
     }
