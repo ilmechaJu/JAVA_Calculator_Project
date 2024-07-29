@@ -11,8 +11,8 @@ public class App {
         while(bool) {
 
             System.out.print("첫 번째 숫자를 입력하세요: ");
-            double fN = sc.nextDouble();
-            calculate.setFirstNumber(fN);
+            double FN = sc.nextDouble();
+            calculate.setFirstNumber(FN);
             System.out.print("두 번째 숫자를 입력하세요: ");
             double SN = sc.nextDouble();
             calculate.setSecondNumber(SN);
@@ -21,7 +21,11 @@ public class App {
             calculate.setOperation(opt);
 
             double result = 0;
-            result = calculate.calculator();
+            try {
+                result = calculate.calculator();
+            } catch (BadInputException e) {
+                System.out.println(e.getMessage());
+            }
 
             Queue_D.add(result);
             System.out.println("결과: " + result);
