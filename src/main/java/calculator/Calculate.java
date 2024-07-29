@@ -5,7 +5,7 @@ public class Calculate {
     private double firstNumber;
     private double secondNumber;
     private char operation;
-    Queue<Double> Queue_D = new LinkedList<>();
+    private Queue<Double> Queue_D = new LinkedList<>();
     Scanner sc = new Scanner(System.in);
 
     //private AbstractOperation operation;
@@ -46,6 +46,9 @@ public class Calculate {
         System.out.println("결과: " + answer);
 
         return answer;
-
     }
+    public Queue<Double> getter(){
+        return this.Queue_D;
+    }
+
 }

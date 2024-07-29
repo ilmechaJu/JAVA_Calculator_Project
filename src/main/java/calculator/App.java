@@ -8,17 +8,19 @@ public class App {
         boolean bool = true;
 
 
+
         while(bool) {
 
             System.out.print("첫 번째 숫자를 입력하세요: ");
             double FN = sc.nextDouble();
             calculate.setFirstNumber(FN);
-            System.out.print("두 번째 숫자를 입력하세요: ");
-            double SN = sc.nextDouble();
-            calculate.setSecondNumber(SN);
             System.out.print("사칙연산 기호를 입력하세요: ");
             char opt = sc.next().charAt(0);
             calculate.setOperation(opt);
+            System.out.print("두 번째 숫자를 입력하세요: ");
+            double SN = sc.nextDouble();
+            calculate.setSecondNumber(SN);
+
 
             double result = 0;
             try {
@@ -32,10 +34,10 @@ public class App {
                 bool = false;
             }
             if (s1.equals("remove")){
-                calculate.Queue_D.poll();
+                calculate.getter().poll();
             }
             if (s1.equals("inquiry")){
-                for(double i : calculate.Queue_D){
+                for(double i : calculate.getter()){
                     System.out.println(i);
                 }
             }
