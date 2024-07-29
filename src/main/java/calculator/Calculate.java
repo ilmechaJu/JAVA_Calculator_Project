@@ -38,7 +38,7 @@ public class Calculate {
 
                 break;
             default:
-                System.out.println("올바르지 않은 입력 형태입니다."); //Throw 사용해서 만들기 (  )
+                throw new BadInputException("올바르지 않은 입력형태 입니다.");
         }
 
         return answer;
