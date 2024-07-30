@@ -5,26 +5,34 @@ public class Calculate {
     private double firstNumber;
     private double secondNumber;
     private char operation;
-    private Queue<Double> Queue_D = new LinkedList<>();
-    public Calculate(Queue<Integer> results) {
-        this.Queue_D = Queue_D;
+    //private Queue<Double> Queue_D = new LinkedList<>();
+    private static final double PI = 3.14159;
+    private Queue<Double> a_results;
+    private Queue<Double> b_results;
+
+    public Calculate() {
+        a_results = new LinkedList<>();
+        b_results = new LinkedList<>();
     }
 
     Scanner sc = new Scanner(System.in);
 
     //private AbstractOperation operation;
-    public void setFirstNumber (double firstNumber){
+    public void setFirstNumber(double firstNumber) {
         this.firstNumber = firstNumber;
     }
-    public void setSecondNumber (double secondNumber){
+
+    public void setSecondNumber(double secondNumber) {
         this.secondNumber = secondNumber;
     }
-    public void setOperation (char operation) {
+
+    public void setOperation(char operation) {
         this.operation = operation;
     }
-    public double calculator() throws BadInputException{
+
+    public double calculator() throws BadInputException {
         double answer = 0;
-        switch(operation){
+        switch (operation) {
             case '+':
                 answer = firstNumber + secondNumber;
                 break;
@@ -35,10 +43,9 @@ public class Calculate {
                 answer = firstNumber * secondNumber;
                 break;
             case '/':
-                if (secondNumber == 0){
+                if (secondNumber == 0) {
                     throw new BadInputException("0으로 나눌 수 없습니다.");
-                }
-                else{
+                } else {
                     answer = firstNumber / secondNumber;
                 }
 
@@ -46,13 +53,45 @@ public class Calculate {
             default:
                 throw new BadInputException("올바르지 않은 입력형태 입니다.");
         }
-        Queue_D.add(answer);
+        a_results.add(answer);
         System.out.println("결과: " + answer);
 
         return answer;
     }
-    public Queue<Double> getter(){
-        return this.Queue_D;
+    public Queue<Double> aGetter(){
+        return this.a_results;
+    }
+    public void aSetter(Queue<Double> queue) {
+        this.a_results = queue;
     }
 
+    public double a_remove() {
+        return this.a_results.poll();
+    }
+
+    public String a_inquiry() {
+        return this.a_results.toString();
+    }
+
+    //원의 넓이를 구하는 메서드
+    public double calculateCircleArea(int radius) {
+        b_results.add(radius * radius * PI);
+        return radius * radius * PI;
+    }
+
+    public Queue<Double> bGetter() {
+        return b_results;
+    }
+
+    public void bSetter(Queue<Double> queue) {
+        this.b_results = queue;
+    }
+
+    public double b_remove() {
+        return this.b_results.poll();
+    }
+
+    public String b_inquiry() {
+        return this.b_results.toString();
+    }
 }
