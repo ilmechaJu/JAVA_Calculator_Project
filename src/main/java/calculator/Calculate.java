@@ -6,6 +6,10 @@ public class Calculate {
     private double secondNumber;
     private char operation;
     private Queue<Double> Queue_D = new LinkedList<>();
+    public Calculate(Queue<Integer> results) {
+        this.Queue_D = Queue_D;
+    }
+
     Scanner sc = new Scanner(System.in);
 
     //private AbstractOperation operation;

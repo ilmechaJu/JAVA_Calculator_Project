@@ -4,7 +4,7 @@ import java.util.*;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Calculate calculate = new Calculate();
+        Calculate calculate = new Calculate(new LinkedList<>());
         boolean bool = true;
 
 
