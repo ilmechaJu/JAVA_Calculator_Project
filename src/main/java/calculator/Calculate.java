@@ -6,7 +6,7 @@ public class Calculate {
     private double secondNumber;
     private char operation;
     //private Queue<Double> Queue_D = new LinkedList<>();
-    private static final double PI = 3.14159;
+    private static final double PI = 3.14159;  //final은 '상수'로 만드는 것이다. PI값은 실수로 건들지 못하게 '상수'로 고정하는 것. //Static은 메모리에 '고정'하는 것. 우리는 PI 변수를 변경 할 마음이 없기 때문에 static과 final을 사용한다.
     private Queue<Double> a_results;
     private Queue<Double> b_results;
 
