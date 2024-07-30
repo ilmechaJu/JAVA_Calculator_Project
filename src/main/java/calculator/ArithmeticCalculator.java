@@ -8,6 +8,10 @@ public class ArithmeticCalculator {
     private double secondNumber;
     private char operation;
     private Queue<Double> results;
+    AddOperator addOperator = new AddOperator();
+    SubtractOperator subtractOperator = new SubtractOperator();
+    MultiplyOperator multiplyOperator = new MultiplyOperator();
+    DivideOperator divideOperator = new DivideOperator();
 
     public ArithmeticCalculator() {
         results = new LinkedList<>();
@@ -29,19 +33,20 @@ public class ArithmeticCalculator {
         double answer = 0;
         switch (operation) {
             case '+':
-                answer = firstNumber + secondNumber;
+                answer = addOperator.operate(firstNumber, secondNumber);
+                //answer = firstNumber + secondNumber;
                 break;
             case '-':
-                answer = firstNumber - secondNumber;
+                answer = subtractOperator.operate(firstNumber, secondNumber);
                 break;
             case '*':
-                answer = firstNumber * secondNumber;
+                answer = multiplyOperator.operate(firstNumber, secondNumber);
                 break;
             case '/':
                 if (secondNumber == 0) {
                     throw new BadInputException("0으로 나눌 수 없습니다.");
                 } else {
-                    answer = firstNumber / secondNumber;
+                    answer = divideOperator.operate(firstNumber, secondNumber);
                 }
                 break;
             default:
