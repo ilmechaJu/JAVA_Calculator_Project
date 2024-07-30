@@ -8,10 +8,6 @@ public class ArithmeticCalculator {
     private double secondNumber;
     private char operation;
     private Queue<Double> results;
-    AddOperator addOperator = new AddOperator();
-    SubtractOperator subtractOperator = new SubtractOperator();
-    MultiplyOperator multiplyOperator = new MultiplyOperator();
-    DivideOperator divideOperator = new DivideOperator();
 
     public ArithmeticCalculator() {
         results = new LinkedList<>();
@@ -30,31 +26,31 @@ public class ArithmeticCalculator {
     }
 
     public double calculate() throws BadInputException {
-        double answer = 0;
+        Operator operator = null;
+
         switch (operation) {
             case '+':
-                answer = addOperator.operate(firstNumber, secondNumber);
-                //answer = firstNumber + secondNumber;
+                operator = new AddOperator();
                 break;
             case '-':
-                answer = subtractOperator.operate(firstNumber, secondNumber);
+                operator = new SubtractOperator();
                 break;
             case '*':
-                answer = multiplyOperator.operate(firstNumber, secondNumber);
+                operator = new MultiplyOperator();
+                break;
+            case '%':
+                operator = new ModOperator();
                 break;
             case '/':
-                if (secondNumber == 0) {
-                    throw new BadInputException("0으로 나눌 수 없습니다.");
-                } else {
-                    answer = divideOperator.operate(firstNumber, secondNumber);
-                }
+                operator = new DivideOperator();
                 break;
             default:
                 throw new BadInputException("올바르지 않은 입력형태 입니다.");
         }
-        results.add(answer);
-        System.out.println("결과: " + answer);
-        return answer;
+        double result = operator.apply(firstNumber,secondNumber);
+        results.add(result);
+        System.out.println("결과: " + result);
+        return result;
     }
 
     public Queue<Double> getResults() {
